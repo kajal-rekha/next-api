@@ -16,13 +16,13 @@ const Movies = () => {
   return (
     <div>
       <h2>Movies</h2>
-      {data.map((movie) => {
+      {data.map((movie) => (
         <div key={movie.id}>
           <h3>
             {movie.title} - {movie.rating}
           </h3>
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 };

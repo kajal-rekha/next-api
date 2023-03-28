@@ -1,5 +1,7 @@
 import { movies } from "@/data/movies";
 
 export default function handler(req, res) {
-  res.status(200).json(movies);
+  if (req.method === "GET") {
+    res.status(200).json(movies);
+  }
 }
