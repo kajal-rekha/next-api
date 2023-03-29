@@ -63,6 +63,18 @@ const Players = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    const res = await fetch(`/api/players/${id}`, {
+      method: "DELETE",
+    });
+
+    const data = await res.json();
+    console.log(data.message);
+
+    // update players state withou this "id"
+    setPlayers(players.filter((player) => player.id !== +id));
+  };
+
   if (isLoading) {
     return (
       <div>
@@ -99,7 +111,11 @@ const Players = () => {
       </form>
       <h2>Players</h2>
       {players?.map((player) => (
-        <PlayerItem key={player.id} player={player} />
+        <PlayerItem
+          key={player.id}
+          player={player}
+          handleDelete={handleDelete}
+        />
       ))}
     </div>
   );
