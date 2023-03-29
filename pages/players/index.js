@@ -57,6 +57,9 @@ const Players = () => {
     //check if res.ok is true
     if (res.ok) {
       console.log("Success", data);
+
+      // update new data to the players state
+      setPlayers([...players, data]);
     }
   };
 
